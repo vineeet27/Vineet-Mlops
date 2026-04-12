@@ -1,0 +1,29 @@
+artifact_path: file:///C:/Users/vinee/Downloads/Vineet%20Mlops/Exp6/mlruns/912011795011189900/models/m-7343adc61e9b4c5e93ac79873b88d012/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.11.1
+model_id: m-7343adc61e9b4c5e93ac79873b88d012
+model_size_bytes: 837
+model_uuid: m-7343adc61e9b4c5e93ac79873b88d012
+prompts: null
+run_id: 584134e7c4a44df783ff91a2c6684167
+signature:
+  inputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1, 4]}}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "object", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-04-12 14:37:06.238767'

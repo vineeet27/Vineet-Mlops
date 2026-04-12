@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/vinee/Downloads/Vineet%20Mlops/Exp6/mlruns/912011795011189900/models/m-7343adc61e9b4c5e93ac79873b88d012/artifacts
+creation_timestamp: 1776004626146
+experiment_id: '912011795011189900'
+last_updated_timestamp: 1776004629534
+model_id: m-7343adc61e9b4c5e93ac79873b88d012
+model_type: null
+name: model
+source_run_id: 584134e7c4a44df783ff91a2c6684167
+status: 2
+status_message: null
