@@ -1,0 +1,42 @@
+# DVC Pipeline Definition
+
+stages:
+  prepare:
+    cmd: python prepare_data.py
+    deps:
+      - prepare_data.py
+    outs:
+      - data/iris_full.csv
+      - data/X_train.csv
+      - data/X_test.csv
+      - data/y_train.csv
+      - data/y_test.csv
+      - data/label_encoding.json
+
+  train:
+    cmd: python train_model.py
+    deps:
+      - train_model.py
+      - data/X_train.csv
+      - data/y_train.csv
+      - params.yaml
+    params:
+      - train.model_params
+    outs:
+      - models/model.pkl
+
+  evaluate:
+    cmd: python evaluate_model.py
+    deps:
+      - evaluate_model.py
+      - models/model.pkl
+      - data/X_test.csv
+      - data/y_test.csv
+    metrics:
+      - metrics/metrics.json:
+          cache: false
+    plots:
+      - metrics/confusion_matrix.json:
+          template: confusion
+          x: actual
+          y: predicted

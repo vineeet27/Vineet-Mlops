@@ -1,0 +1,7 @@
+dvc
+scikit-learn
+seaborn
+pandas
+numpy
+pyyaml
+uvicorn

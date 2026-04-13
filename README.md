@@ -206,6 +206,56 @@ Vineet Mlops/
         │   ├── datasets/
         │   ├── models/
         └── models/                        # Logged models
+└── Exp7/
+    ├── prepare_data.py                    # Data preparation stage
+    ├── train_model.py                     # Model training stage
+    ├── evaluate_model.py                  # Model evaluation stage
+    ├── dvc.yaml                           # DVC pipeline definition
+    ├── params.yaml                        # Hyperparameters
+    ├── requirements.txt                   # Python dependencies
+    ├── .gitignore                         # Git ignore rules
+    ├── README.md                          # DVC documentation
+    ├── dvc.lock                           # DVC lock file (auto-generated)
+    ├── data/                              # Datasets (auto-generated)
+    ├── models/                            # Trained models (auto-generated)
+    └── metrics/                           # Evaluation metrics (auto-generated)
+```
+
+---
+
+### **Exp7: DVC ML Pipeline**
+
+**Files:**
+- `prepare_data.py` - Data preparation stage
+- `train_model.py` - Model training stage
+- `evaluate_model.py` - Model evaluation stage
+- `dvc.yaml` - Pipeline definition
+- `params.yaml` - Hyperparameters
+- `requirements.txt` - Dependencies
+- `README.md` - Comprehensive documentation
+
+**Purpose:** Reproducible ML pipeline using DVC (Data Version Control) for version tracking and workflow automation.
+
+**Working:**
+- Defines multi-stage data → train → evaluate pipeline
+- Tracks all data, models, and metrics with DVC
+- Parameterizes model hyperparameters in `params.yaml`
+- Automatically handles dependencies and re-runs
+- Ensures reproducibility across environments
+
+**Key Benefits:**
+- **Reproducibility**: Same params + data = same results
+- **Version Control**: Track entire ML workflow
+- **Automation**: Automatic stage dependencies
+- **Collaboration**: Clean git history with DVC tracking
+- **Scalability**: Easy to scale with remote storage
+
+**Quick Start:**
+```bash
+cd Exp7
+pip install -r requirements.txt
+dvc repro           # Run full pipeline
+dvc metrics show    # View results
 ```
 
 ---
