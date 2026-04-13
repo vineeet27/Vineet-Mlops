@@ -1,2 +1,191 @@
-# Vineet Mlops
+# Vineet MLOps
+
+A collection of machine learning experiments demonstrating various approaches to building, training, and deploying ML models using the Iris dataset.
+
+## Project Overview
+
+This project contains multiple experiments showcasing different ML workflows:
+- Data exploration and visualization
+- Model training and evaluation
+- API deployment
+- Experiment tracking with MLflow
+
+---
+
+## Experiments
+
+### **Exp0: Logistic Regression with EDA (Jupyter Notebook)**
+
+**File:** `logistic_regression_iris.ipynb`
+
+**Purpose:** Exploratory Data Analysis and model training in an interactive notebook environment.
+
+**Working:**
+- Loads Iris dataset from seaborn
+- Performs comprehensive EDA with visualizations (pairplots, histograms, correlation heatmap)
+- Trains Logistic Regression model
+- Evaluates performance with confusion matrix and classification report
+
+**Key Components:**
+- Data loading and inspection
+- Statistical summary
+- Pairplot visualization
+- Distribution analysis
+- Correlation analysis
+- Model training and evaluation
+
+---
+
+### **Exp1: Logistic Regression (Python Script)**
+
+**File:** `main.py`
+
+**Purpose:** Python script version of Exp0 for non-interactive execution.
+
+**Working:**
+- Loads Iris dataset
+- Performs basic EDA visualization
+- Splits data (80/20 train-test)
+- Trains Logistic Regression model
+- Prints accuracy and classification report
+
+**Key Components:**
+- Dataset loading and preprocessing
+- Train-test split
+- Model training
+- Performance metrics
+
+---
+
+### **Exp2: Basic Logistic Regression Training**
+
+**Files:**
+- `train.py` - Main training script
+- `requirements.txt` - Project dependencies
+
+**Purpose:** Simplified, production-ready script for training Logistic Regression.
+
+**Working:**
+- Loads and prepares Iris dataset
+- Encodes target labels
+- Splits data (80/20)
+- Trains model with max_iter=200
+- Outputs accuracy, classification report, and confusion matrix
+
+**Key Components:**
+- Minimal dependencies setup
+- Clean model training pipeline
+- Standardized evaluation metrics
+
+---
+
+### **Exp4: FastAPI Inference Server**
+
+**Files:**
+- `main.py` - FastAPI application
+- `requirements.txt` - Dependencies (FastAPI, Pydantic, scikit-learn)
+
+**Purpose:** REST API for real-time inference with the trained Logistic Regression model.
+
+**Working:**
+- Defines API input/output schemas using Pydantic
+- Trains model on startup
+- Provides `/health` endpoint for health checks
+- Provides REST endpoints for predictions
+- Returns predicted class and prediction probabilities
+
+**Key Features:**
+- Type-safe input validation
+- Interactive API documentation (Swagger UI)
+- Scalable inference server
+
+---
+
+### **Exp6: MLflow Experiment Tracking**
+
+**Files:**
+- `main.py` - Main training script with MLflow integration
+- `mlruns/` - MLflow runs storage (local file system)
+
+**Purpose:** Production-grade experiment tracking and model logging using MLflow.
+
+**Working:**
+- Sets up MLflow tracking URI and experiment
+- Enables autolog for scikit-learn models
+- Trains Logistic Regression with feature scaling
+- Automatically logs:
+  - Model parameters
+  - Training metrics (accuracy, F1, precision, recall, ROC-AUC, etc.)
+  - Input datasets and artifacts
+  - Model artifacts and estimator details
+
+**MLflow Artifacts Tracked:**
+- Model serialization
+- Parameter configurations
+- Evaluation metrics
+- Input/output datasets
+- Conda environment and python requirements
+
+---
+
+## File Structure
+
+```
+Vineet Mlops/
+├── README.md                              # Project documentation
+├── Exp0/
+│   └── logistic_regression_iris.ipynb     # Jupyter notebook (EDA + training)
+├── Exp1/
+│   └── main.py                            # Python script version
+├── Exp2/
+│   ├── train.py                           # Simplified training script
+│   └── requirements.txt                   # Dependencies
+├── Exp4/
+│   ├── main.py                            # FastAPI inference server
+│   └── requirements.txt                   # Dependencies
+└── Exp6/
+    ├── main.py                            # MLflow integrated training
+    ├── requirements.txt                   # Dependencies
+    └── mlruns/                            # MLflow runs & artifacts storage
+        ├── 0/                             # Metadata
+        ├── 912011795011189900/            # Experiment runs
+        │   ├── meta.yaml
+        │   ├── 584134e7c4a44df783ff91a2c6684167/  # Run artifacts
+        │   │   ├── artifacts/
+        │   │   ├── inputs/
+        │   │   ├── metrics/
+        │   │   ├── outputs/
+        │   │   ├── params/
+        │   │   └── tags/
+        │   ├── datasets/
+        │   ├── models/
+        └── models/                        # Logged models
+```
+
+---
+
+## Getting Started
+
+1. **Exp0:** Open `Exp0/logistic_regression_iris.ipynb` in Jupyter
+2. **Exp1/Exp2:** Run `python main.py` or `python train.py`
+3. **Exp4:** Run FastAPI server:
+   ```bash
+   pip install -r requirements.txt
+   uvicorn main:app --reload
+   ```
+4. **Exp6:** Run MLflow tracking:
+   ```bash
+   pip install -r requirements.txt
+   python main.py
+   ```
+   Then view results: `mlflow ui --backend-store-uri ./mlruns`
+
+---
+
+## Dataset
+
+All experiments use the **Iris dataset** from seaborn:
+- **Features:** Sepal length, sepal width, petal length, petal width
+- **Target:** Species (setosa, versicolor, virginica)
+- **Samples:** 150 (150 after removing duplicates in Exp6)
 
