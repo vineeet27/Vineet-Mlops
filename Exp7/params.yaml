@@ -9,7 +9,6 @@ train:
     max_iter: 200
     random_state: 42
     solver: 'lbfgs'
-    multi_class: 'multinomial'
 
 evaluate:
   metrics_output: 'metrics/metrics.json'
