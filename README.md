@@ -101,9 +101,55 @@ This project contains multiple experiments showcasing different ML workflows:
 
 ---
 
+### **Exp5: Dockerized FastAPI Inference Server**
+
+**Files:**
+- `main.py` - FastAPI application (same as Exp4)
+- `requirements.txt` - Python dependencies
+- `Dockerfile` - Docker image configuration
+- `docker-compose.yml` - Container orchestration
+- `.dockerignore` - Exclude unnecessary files
+- `README.md` - Detailed Docker documentation
+
+**Purpose:** Containerized REST API for production deployment with Docker.
+
+**Working:**
+- Builds lightweight Docker image (Python 3.11 slim)
+- Trains Logistic Regression model on container startup
+- Serves predictions via FastAPI on port 8000
+- Includes health checks and restart policies
+- Supports easy scaling and deployment
+
+**Key Features:**
+- Docker containerization for consistency
+- Docker Compose for easy orchestration
+- Health checks for monitoring
+- Production-ready configuration
+- Multi-platform deployment support
+- Automated restart on failure
+
+**Quick Start:**
+```bash
+# Using Docker Compose
+docker-compose up -d
+
+# Or using Docker CLI
+docker build -t iris-inference-api .
+docker run -p 8000:8000 iris-inference-api
+```
+
+---
+
 ### **Exp6: MLflow Experiment Tracking**
 
 **Files:**
+├── Exp5/
+│   ├── main.py                            # Dockerized FastAPI server
+│   ├── requirements.txt                   # Python dependencies
+│   ├── Dockerfile                         # Docker image config
+│   ├── docker-compose.yml                 # Container orchestration
+│   ├── .dockerignore                      # Exclude from build
+│   └── README.md                          # Docker documentation
 - `main.py` - Main training script with MLflow integration
 - `mlruns/` - MLflow runs storage (local file system)
 
